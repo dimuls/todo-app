@@ -7,4 +7,3 @@ get '/' => sub {
 };
 
 app->start;
-__DATA__

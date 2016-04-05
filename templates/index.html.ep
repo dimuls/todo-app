@@ -2,6 +2,7 @@
 % title 'ToDo';
 
 % content_for 'css' => begin
+<link href='https://fonts.googleapis.com/css?family=Delius+Swash+Caps' rel='stylesheet' type='text/css'>
 %= stylesheet '/css/index.css'
 % end
 
@@ -10,13 +11,71 @@
 % end
 
 <div class="todo">
-  <h1 class="todo-header">ToDo</h1>
+
+
+  <h1 class="todo-header">
+    ToDo App
+  </h1>
+
+
   <div class="todo-body">
 
+    <h2 class="todo-subheader">Write new ToDo</h2>
 
+    <!-- ko template: { name: 'todo-task-new', data: newTask } --><!-- /ko -->
 
+    <!-- ko if: thereIsTasks -->
+
+      <h2 class="todo-subheader">
+        <div>Your ToDo list</div>
+        <div class="todo-subheader-addon">
+          Sort by title:
+          <label><input data-bind="checked: tasksSortOrder" value="asc" type="radio"/> &uarr;</label>
+          <label><input data-bind="checked: tasksSortOrder" value="desc" type="radio"/> &darr;</label>
+        </div>
+      </h2>
+
+      <!-- ko template: { name: 'todo-task', foreach: sortedTasks } --><!-- /ko -->
+
+    <!-- /ko -->
   </div>
+
+
   <div class="todo-footer">
-    ToDo v0.1
+    v0.1
   </div>
+
+
 </div>
+
+<script id="todo-task" type="text/html">
+
+  <!-- ko ifnot: isEditing -->
+    <div class="todo-task">
+      <label data-bind="css: { done: done }" class="todo-task-title">
+        <input data-bind="checked: done" type="checkbox"/>
+        <span data-bind="text: title"></span>
+      </label>
+      <button data-bind="click: edit">...</button>
+      <button data-bind="click: $parent.removeTask">&times;</button>
+    </div>
+  <!-- /ko -->
+
+  <!-- ko if: isEditing -->
+    <div class="todo-task">
+      <input data-bind="textInput: editingTitle" type="text" class="todo-task-title" />
+      <button data-bind="click: save, enable: isNotEmpty">&check;</button>
+      <button data-bind="click: cancel">&times;</button>
+    </div>
+  <!-- /ko -->
+
+</script>
+
+
+<script id="todo-task-new" type="text/html">
+  <div class="todo-task">
+    <input data-bind="textInput: editingTitle" type="text" class="todo-task-title" />
+    <button data-bind="click: $parent.addNewTask, enable: isNotEmpty">+</button>
+    <button data-bind="click: clear">&times;</button>
+  </div>
+</script>

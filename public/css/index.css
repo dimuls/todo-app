@@ -1,26 +1,93 @@
 body {
-  background-color: #333;
+  background-color: #eee;
   padding: 2em;
+  font-family: 'Delius Swash Caps', cursive;
+}
+
+input {
+  padding: .125em;
+}
+
+button {
+  padding: .125em .5em;
 }
 
 .todo {
   max-width: 40em;
+  min-width: 22em;
   margin-left: auto;
   margin-right: auto;
-  background-color: #eee;
+  background-color: white;
+  box-shadow: .5em .5em 1em grey;
 }
 
 .todo-header {
-  padding: 1em;
+  font-size: 2em;
+  padding: 1em .5em;
   margin: 0;
+  color: #0000b1;
+  text-align: center;
+}
+
+.todo-subheader {
+  font-size: 1.5em;
+  font-weight: normal;
+  margin: 1em 0 .5em 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-subheader-addon {
+  font-size: .6666666em;
+}
+
+.todo-subheader:first-child {
+  margin-top: 0;
 }
 
 .todo-body {
-  padding: 1em;
+  padding: 0 1em;
 }
 
 .todo-footer {
   font-size: 0.75em;
   text-align: center;
   padding: 1em;
+}
+
+
+
+
+
+.todo-task {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.todo-task:last-child {
+  margin-bottom: 0;
+}
+
+
+.todo-task-title {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.todo-task-title span {
+  font-weight: bold;
+}
+
+.todo-task-title.done span {
+  font-weight: normal;
+  text-decoration: line-through;
+}
+
+.todo-task-title > span {
+  display: inline-block;
+  margin-left: .5em;
 }
