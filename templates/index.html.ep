@@ -1,0 +1,22 @@
+% layout 'default';
+% title 'ToDo';
+
+% content_for 'css' => begin
+%= stylesheet '/css/index.css'
+% end
+
+% content_for 'js' => begin
+%= javascript '/js/index.js'
+% end
+
+<div class="todo">
+  <h1 class="todo-header">ToDo</h1>
+  <div class="todo-body">
+
+
+
+  </div>
+  <div class="todo-footer">
+    ToDo v0.1
+  </div>
+</div>

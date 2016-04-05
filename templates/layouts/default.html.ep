@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <%= stylesheet '/css/lib/normalize.css' %>
+    <%= content_for 'css' %>
+  </head>
+  <body>
+    <%= content %>
+    <%= javascript '/js/lib/jquery.js' %>
+    <%= javascript '/js/lib/lodash.js' %>
+    <%= javascript '/js/lib/knockout.js' %>
+    <%= content_for 'js' %>
+  </body>
+</html>
